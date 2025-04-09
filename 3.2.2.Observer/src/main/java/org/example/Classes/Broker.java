@@ -8,21 +8,21 @@ import java.util.List;
 
 public class Broker implements StockMarketObservable {
 
-    private final List<StockMarketObserver> observers = new ArrayList<>();
+    private final List<StockMarketObserver> agencies = new ArrayList<>();
 
     @Override
     public void addObserver(StockMarketObserver observer) {
-        observers.add(observer);
+        agencies.add(observer);
     }
 
     @Override
     public void removeObserver(StockMarketObserver observer) {
-        observers.remove(observer);
+        agencies.remove(observer);
     }
 
     @Override
     public void notifyObservers(String stockStatus) {
-        for (StockMarketObserver observer : observers) {
+        for (StockMarketObserver observer : agencies) {
             observer.update(stockStatus);
         }
     }

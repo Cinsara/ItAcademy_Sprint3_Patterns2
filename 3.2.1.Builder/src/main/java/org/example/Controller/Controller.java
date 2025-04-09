@@ -1,26 +1,35 @@
 package org.example.Controller;
 
 import org.example.Classes.*;
+import org.example.Components.Dough;
+import org.example.Components.Ingredients;
+import org.example.Components.Size;
 import org.example.Director.PizzaMaster;
 import org.example.Interfaces.PizzaBuilder;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Controller {
     public static void start() {
+        PizzaBuilder meatPizzaBuilder = new MeatPizza();
+        PizzaMaster pizzaMaster = new PizzaMaster(meatPizzaBuilder);
 
-        PizzaMaster pizzaMaster = new PizzaMaster();
+        Pizza meatPizzaCustom = pizzaMaster.makePizza(Size.LARGE, Dough.CLASSIC, Ingredients.OLIVES);
 
-        Pizza chicagoPizzaConstructor = pizzaMaster.makeChigagoPizza(new ChicagoPizza());
-        System.out.println("Chicago Pizza: " + chicagoPizzaConstructor);
+        meatPizzaCustom.addTopping(Ingredients.BASIL);
+        meatPizzaCustom.addTopping(Ingredients.OREGANO);
 
-        Pizza greekPizzaConstructor = pizzaMaster.makeGreekPizza(new GreekPizza());
-        System.out.println("Greek Pizza: " + greekPizzaConstructor);
+        System.out.println("Your pizza is ready! Enjoy :)");
+        System.out.println(meatPizzaCustom);
 
-        Pizza margheritaPizzaConstructor = pizzaMaster.makeMargheritaPizza(new MargheritaPizza());
-        System.out.println("Margherita Pizza: " + margheritaPizzaConstructor);
+        PizzaBuilder greekPizzaBuilder = new GreekPizza();
+        Pizza greekPizzaCustom = new PizzaMaster(greekPizzaBuilder)
+                .makePizza(Size.SMALL, Dough.THIN, Ingredients.ONION);
 
-        Pizza meatPizzaConstructor = pizzaMaster.makeMeatPizza(new MeatPizza());
-        System.out.println("Meat Pizza: " + meatPizzaConstructor);
+        greekPizzaCustom.addTopping(Ingredients.OLIVE_OIL);
+
+        System.out.println("\nYour second pizza is ready!");
+        System.out.println(greekPizzaCustom);
     }
 }

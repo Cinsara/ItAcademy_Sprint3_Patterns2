@@ -9,41 +9,16 @@ import org.example.Interfaces.PizzaBuilder;
 import java.util.List;
 
 public class PizzaMaster {
+    private final PizzaBuilder pizzaBuilder;
 
-    public Pizza makeChigagoPizza(PizzaBuilder pizzaBuilder){
-        return pizzaBuilder.changeSize(Size.LARGE)
-                .changeDough(Dough.THICK)
-                .addToppings(Ingredients.MOZZARELLA)
-                .addToppings(Ingredients.TOMATO)
-                .addToppings(Ingredients.PEPPERONI)
-                .getPizza();
+    public PizzaMaster(PizzaBuilder pizzaBuilder){
+        this.pizzaBuilder = pizzaBuilder;
     }
 
-    public Pizza makeGreekPizza(PizzaBuilder pizzaBuilder){
-        return pizzaBuilder.changeSize(Size.SMALL)
-                .changeDough(Dough.THIN)
-                .addToppings(Ingredients.MOZZARELLA)
-                .addToppings(Ingredients.TOMATO)
-                .addToppings(Ingredients.OLIVES)
-                .addToppings(Ingredients.PEPPERONI)
-                .getPizza();
-    }
-
-    public Pizza makeMargheritaPizza(PizzaBuilder pizzaBuilder){
-        return pizzaBuilder.changeSize(Size.MEDIUM)
-                .changeDough(Dough.THIN)
-                .addToppings(Ingredients.MOZZARELLA)
-                .addToppings(Ingredients.TOMATO)
-                .getPizza();
-    }
-
-    public Pizza makeMeatPizza(PizzaBuilder pizzaBuilder){
-        return pizzaBuilder.changeSize(Size.LARGE)
-                .changeDough(Dough.THICK)
-                .addToppings(Ingredients.MOZZARELLA)
-                .addToppings(Ingredients.TOMATO)
-                .addToppings(Ingredients.PEPPERONI)
-                .addToppings(Ingredients.HAM)
-                .getPizza();
+    public Pizza makePizza(Size size, Dough dough, Ingredients ingredients){
+        this.pizzaBuilder.changeSize(size);
+        this.pizzaBuilder.changeDough(dough);
+        this.pizzaBuilder.addToppings(ingredients);
+        return this.pizzaBuilder.getPizza();
     }
 }

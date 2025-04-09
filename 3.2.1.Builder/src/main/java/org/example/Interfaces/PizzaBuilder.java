@@ -9,7 +9,6 @@ public interface PizzaBuilder {
     PizzaBuilder changeSize(Size size);
     PizzaBuilder changeDough(Dough dough);
     PizzaBuilder addToppings(Ingredients topping);
-    PizzaBuilder removeToppings(Ingredients topping);
     Pizza getPizza();
 
 }

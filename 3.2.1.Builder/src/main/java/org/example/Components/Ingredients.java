@@ -11,5 +11,8 @@ public enum Ingredients {
     CHICKEN,
     ONION,
     PINEAPPLE,
-    PEPPERONI
+    PEPPERONI,
+    BASIL,
+    OLIVE_OIL,
+    OREGANO
 }

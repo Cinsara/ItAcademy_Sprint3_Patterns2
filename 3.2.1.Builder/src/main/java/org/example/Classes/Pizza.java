@@ -18,6 +18,10 @@ public class Pizza {
             this.ingredients = ingredients;
     }
 
+    public List<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
     public void setSize(Size size) {
         this.size = size;
     }
@@ -28,10 +32,6 @@ public class Pizza {
 
     public void addTopping(Ingredients topping){
         this.ingredients.add(topping);
-    }
-
-    public void removeTopping(Ingredients topping){
-        this.ingredients.remove(topping);
     }
 
     public String toString(){
